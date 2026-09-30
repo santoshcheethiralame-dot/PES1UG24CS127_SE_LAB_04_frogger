@@ -1,0 +1,18 @@
+﻿python : C:\Users\carbo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-pack
+At line:4 char:10
++   $raw = python "$s.py" 2>&1 | Out-String
++          ~~~~~~~~~~~~~~~~~~~
+    + FullyQualifiedErrorId : NativeCommandError
+frog col=6 row=3 -> rect <rect(304, 154, 42, 42)>
+pass   car 40px, left edge 50px left of frog (deep overlap)
+        vehicle rect <rect(250, 154, 40, 42)>  overlap=False  check_collision()=False
+OK     car 40px, left edge 20px left of frog (deep overlap)
+        vehicle rect <rect(280, 154, 40, 42)>  overlap=True  check_collision()=True
+OK     truck 70px, left edge 60px left of frog (covers frog)
+        vehicle rect <rect(240, 154, 70, 42)>  overlap=True  check_collision()=True
+pass   truck 70px, left edge 90px left of frog (covers frog)
+        vehicle rect <rect(210, 154, 70, 42)>  overlap=False  check_collision()=False
+0/2 vehicles that REALLY overlap the frog were NOT detected as hits.
+This is the Task 1 bug: collision compares grid columns, not real rectangles.
+The longer the vehicle, the more of the frog it can cover without ever
+registering, because only the vehicle's LEFT edge column is ever tested.

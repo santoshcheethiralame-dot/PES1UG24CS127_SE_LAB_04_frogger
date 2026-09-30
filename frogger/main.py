@@ -28,11 +28,13 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 engine.handle_keydown(event.key)
 
-        engine.update()
+        # dt is in seconds and drives the 30-second attempt timer.
+        dt = clock.tick(60) / 1000.0
+
+        engine.update(dt)
         engine.draw(screen, font)
 
         pygame.display.flip()
-        clock.tick(60)
 
     pygame.quit()
 

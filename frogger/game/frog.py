@@ -15,6 +15,13 @@ class Frog:
         self.cols = cols
         self.start_row_limit = start_row_limit  # frog can't move below its own starting row
 
+        # Presentation / protection timers, in seconds. The hit timer drives
+        # the visible "you got squashed" flash; the invulnerability timer
+        # stops the player from being killed again the instant they respawn
+        # on top of the vehicle that just hit them.
+        self.hit_timer = 0.0
+        self.invuln_timer = 0.0
+
     def move(self, dcol, drow):
         new_col = self.col + dcol
         new_row = self.row + drow
@@ -26,6 +33,19 @@ class Frog:
     def reset(self):
         self.col = self.start_col
         self.row = self.start_row
+        self.hit_timer = 0.0
+
+    def update_timers(self, dt):
+        self.hit_timer = max(0.0, self.hit_timer - dt)
+        self.invuln_timer = max(0.0, self.invuln_timer - dt)
+
+    @property
+    def is_hit(self):
+        return self.hit_timer > 0.0
+
+    @property
+    def is_invulnerable(self):
+        return self.invuln_timer > 0.0
 
     def get_rect(self, cell_size, pad=4):
         return pygame.Rect(

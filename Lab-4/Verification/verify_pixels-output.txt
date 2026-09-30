@@ -1,0 +1,30 @@
+﻿python : C:\Users\carbo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-pack
+At line:4 char:10
++   $raw = python "$s.py" 2>&1 | Out-String
++          ~~~~~~~~~~~~~~~~~~~
+    + FullyQualifiedErrorId : NativeCommandError
+--- HUD (lives / score / time) ---
+PASS  a fresh spawn starts invulnerable (blink grace)
+PASS  lives readout is inked
+PASS  score readout is inked
+PASS  time readout is inked
+PASS  normal frog is solid green at its centre
+--- Hit moment is visible ---
+PASS  engine is in HIT state
+PASS  hit frog is recoloured red
+PASS  hit flash expands past the normal frog bounds
+PASS  HIT! message is on screen
+PASS  healthy frog does not draw the hit ring
+--- Respawn invulnerability blink ---
+PASS  invulnerable frog is drawn semi-transparent, not solid green
+PASS  invulnerable frog keeps some green
+--- End-of-run banners ---
+PASS  You Won! banner is drawn
+PASS  engine reached GAME_OVER
+PASS  Game Over banner is drawn
+--- Low-time warning colour ---
+PASS  time readout turns amber when low
+PASS  time readout is white when plenty of time remains
+==============================================
+17 passed, 0 failed
+All drawing verified at the pixel level.

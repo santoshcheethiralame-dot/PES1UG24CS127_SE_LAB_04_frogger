@@ -1,0 +1,53 @@
+﻿python : C:\Users\carbo\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-pack
+At line:4 char:10
++   $raw = python "$s.py" 2>&1 | Out-String
++          ~~~~~~~~~~~~~~~~~~~
+    + FullyQualifiedErrorId : NativeCommandError
+--- Task 1: collision detection uses real overlap ---
+PASS  wide vehicle covering frog is detected
+PASS  car overlapping frog is detected
+PASS  vehicle fully past the frog is NOT a hit
+PASS  sharing a column but not a row is NOT a hit
+--- Task 2: lives, respawn, visible hit, game over ---
+PASS  starts with 3 lives
+PASS  starts in RUNNING state
+PASS  collision costs a life
+PASS  collision enters HIT state (hit is visible)
+PASS  hit flash timer is running
+PASS  frog cannot hop during hit pause
+PASS  timer is frozen during the hit pause
+PASS  respawns to the starting position
+PASS  returns to RUNNING after the hit pause
+PASS  respawn grants invulnerability
+PASS  life count drops to 1
+PASS  still playing with a life left
+PASS  life count drops to 0
+PASS  all lives spent -> GAME_OVER
+PASS  R restarts from Game Over
+--- Task 3: goal, score, win message ---
+PASS  reaching the goal scores
+PASS  reaching the goal wins
+PASS  win message is set
+PASS  reaching the goal wins even with almost no time left
+--- Task 4: 30-second per-attempt timer ---
+PASS  timer starts at 30s
+PASS  timer counts down
+PASS  timeout costs a life (not a free reset)
+PASS  timeout shows a visible moment
+PASS  timeout message is distinct
+PASS  new attempt begins
+PASS  new attempt gets a full fresh 30s
+PASS  player continues after a timeout
+PASS  a second idle timeout costs another life
+PASS  second attempt also gets a fresh 30s
+PASS  three timeouts -> GAME_OVER
+PASS  R resets the timer
+--- Expected behavior: movement rules ---
+PASS  frog cannot move below its starting row
+PASS  frog hops up one cell
+PASS  frog hops left one cell
+PASS  frog cannot move off the left edge
+PASS  frog cannot move off the right edge
+==============================================
+40 passed, 0 failed
+All Lab-4 behaviours verified.
